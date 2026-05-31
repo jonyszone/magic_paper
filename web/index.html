@@ -6,19 +6,17 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Magic Paper - A magical mind reading app that predicts your symbol">
   <meta name="keywords" content="magic, mind reader, puzzle, game, crystal ball">
-  <meta name="author" content="Magic Paper">
   
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Magic Paper - Mind Reader">
-  <meta property="og:description" content="Think of a number and I'll guess the symbol you're thinking of!">
+  <meta property="og:description" content="Think of a number and I'll guess the symbol!">
   <meta property="og:type" content="website">
   
-  <!-- PWA Meta Tags -->
+  <!-- PWA -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Magic Paper">
   <meta name="theme-color" content="#7C4DFF">
-  <meta name="background-color" content="#0A0E21">
   
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
   <link rel="icon" type="image/png" href="favicon.png"/>
@@ -29,7 +27,6 @@
     body {
       background: radial-gradient(circle at center, #1A1F3A, #0A0E21);
       margin: 0;
-      padding: 0;
       overflow: hidden;
     }
     .loading {
@@ -39,7 +36,7 @@
       height: 100vh;
       flex-direction: column;
     }
-    .loading-crystal {
+    .crystal {
       width: 80px;
       height: 80px;
       background: radial-gradient(circle at 30% 30%, #B388FF, #7C4DFF, #651FFF);
@@ -47,27 +44,21 @@
       animation: pulse 2s ease-in-out infinite, float 3s ease-in-out infinite;
       box-shadow: 0 0 40px rgba(124, 77, 255, 0.6);
     }
-    .loading-text {
+    .text {
       margin-top: 24px;
       color: #B388FF;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui;
       font-size: 14px;
       letter-spacing: 4px;
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
   </style>
 </head>
 <body>
   <div class="loading" id="loading">
-    <div class="loading-crystal"></div>
-    <div class="loading-text">LOADING...</div>
+    <div class="crystal"></div>
+    <div class="text">LOADING...</div>
   </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
