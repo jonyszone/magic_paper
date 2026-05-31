@@ -1,13 +1,14 @@
 {
-    "name": "starter_practice",
-    "short_name": "starter_practice",
+    "name": "Magic Paper - Mind Reader",
+    "short_name": "Magic Paper",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0A0E21",
+    "theme_color": "#7C4DFF",
+    "description": "A magical mind reading app that predicts your symbol",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
+    "categories": ["games", "entertainment"],
     "icons": [
         {
             "src": "icons/Icon-192.png",

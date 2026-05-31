@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
+  <meta name="description" content="Magic Paper - A magical mind reading app that predicts your symbol">
+  <meta name="keywords" content="magic, mind reader, puzzle, game, crystal ball">
+  <meta name="author" content="Magic Paper">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Magic Paper - Mind Reader">
+  <meta property="og:description" content="Think of a number and I'll guess the symbol you're thinking of!">
+  <meta property="og:type" content="website">
+  
+  <!-- PWA Meta Tags -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="starter_practice">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Magic Paper">
+  <meta name="theme-color" content="#7C4DFF">
+  <meta name="background-color" content="#0A0E21">
+  
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>starter_practice</title>
+  <title>Magic Paper - Mind Reader</title>
   <link rel="manifest" href="manifest.json">
+  
+  <style>
+    body {
+      background: radial-gradient(circle at center, #1A1F3A, #0A0E21);
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .loading-crystal {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #B388FF, #7C4DFF, #651FFF);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite, float 3s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(124, 77, 255, 0.6);
+    }
+    .loading-text {
+      margin-top: 24px;
+      color: #B388FF;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      letter-spacing: 4px;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
 </head>
 <body>
+  <div class="loading" id="loading">
+    <div class="loading-crystal"></div>
+    <div class="loading-text">LOADING...</div>
+  </div>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
