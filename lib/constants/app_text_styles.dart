@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-  static TextStyle title({bool isDark = true}) => TextStyle(
-    fontSize: 42,
+  static TextStyle title({bool isDark = true}) => const TextStyle(
+    fontSize: 32,
     fontWeight: FontWeight.w300,
-    letterSpacing: 8,
+    letterSpacing: 6,
     color: Colors.white,
   );
 
