@@ -1,5 +1,5 @@
-name: starter_practice
-description: A new Flutter project.
+name: magic_paper
+description: A magical mind reading app with beautiful UI.
 
 environment:
   sdk: '>=2.19.0 <4.0.0'
