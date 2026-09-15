@@ -28,10 +28,12 @@ class _MagicPaperAppState extends State<MagicPaperApp> {
       animation: _themeProvider,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Magic Paper',
+          title: 'Magic Paper — Mind Reader',
           debugShowCheckedModeBanner: false,
           theme: _themeProvider.theme,
-          home: SplashScreen(themeProvider: _themeProvider),
+          themeMode: _themeProvider.mode,
+          home:
+              SplashScreen(themeProvider: _themeProvider),
         );
       },
     );
