@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
+import '../constants/app_theme.dart';
 
+/// Single source of truth for light / dark. Exposes [isDark] so
+/// custom-painted backdrops can adapt instead of hard-coding night.
 class ThemeProvider extends ChangeNotifier {
   bool _isDarkMode = true;
 
   bool get isDarkMode => _isDarkMode;
-
-  ThemeData get theme => _isDarkMode ? _darkTheme : _lightTheme;
+  bool get isDark => _isDarkMode;
+  ThemeData get theme => _isDarkMode ? AppTheme.dark : AppTheme.light;
+  ThemeMode get mode => _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
   void toggleTheme() {
     _isDarkMode = !_isDarkMode;
     notifyListeners();
   }
 
-  static ThemeData get _darkTheme => ThemeData(
-    brightness: Brightness.dark,
-    primaryColor: const Color(0xFF6B4EAE),
-    scaffoldBackgroundColor: const Color(0xFF0A0E21),
-  );
-
-  static ThemeData get _lightTheme => ThemeData(
-    brightness: Brightness.light,
-    primaryColor: const Color(0xFF7C4DFF),
-    scaffoldBackgroundColor: const Color(0xFFF8F5FF),
-  );
+  void setDark(bool value) {
+    if (_isDarkMode == value) return;
+    _isDarkMode = value;
+    notifyListeners();
+  }
 }

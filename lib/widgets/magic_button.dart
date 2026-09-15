@@ -1,5 +1,6 @@
+// Legacy compatibility: MagicButton now delegates to the new chrome.
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
+import 'magic_chrome.dart';
 
 class MagicButton extends StatelessWidget {
   final String text;
@@ -17,77 +18,22 @@ class MagicButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     if (isOutlined) {
-      return Container(
-        height: 52,
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.primary, width: 1.5),
-          borderRadius: BorderRadius.circular(26),
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: onPressed,
-            borderRadius: BorderRadius.circular(26),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (icon != null) ...[
-                    Icon(icon, color: AppColors.primaryLight, size: 18),
-                    const SizedBox(width: 8),
-                  ],
-                  Text(
-                    text,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1,
-                      color: AppColors.primaryLight,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+      return SizedBox(
+        width: double.infinity,
+        child: GhostButton(
+          label: text,
+          icon: icon ?? Icons.auto_awesome_outlined,
+          onTap: onPressed,
+          isDark: isDark,
         ),
       );
     }
-
-    return Container(
-      height: 52,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [AppColors.primary, AppColors.primaryLight],
-        ),
-        borderRadius: BorderRadius.circular(26),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primary.withOpacity(0.4),
-            blurRadius: 20,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onPressed,
-          borderRadius: BorderRadius.circular(26),
-          child: Center(
-            child: Text(
-              text,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 2,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
+    return GradientButton(
+      label: text,
+      onTap: onPressed,
+      icon: icon,
     );
   }
 }
